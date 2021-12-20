@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="container">
+    <div class="site-header-inner">
+      <div class="brand header-brand">
+        <h1 class="m-0">
+          <a>
+            <img
+              class="header-logo-image"
+              src="../assets/images/logo.svg"
+              alt="Logo"
+              width="30px"
+              (click)="changeRoute('ruta actual: ' + currentRoute)"
+            />
+          </a>
+        </h1>
+      </div>
+      <h4>Página de {{ currentRoute }}</h4>
+    </div>
+  </div>
+</header>

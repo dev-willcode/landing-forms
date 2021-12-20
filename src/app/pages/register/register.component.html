@@ -1,0 +1,146 @@
+<app-header [currentRoute]="'Registro'"></app-header>
+
+<section class="m-5">
+  <form [formGroup]="form" (submit)="saveForm()">
+    <div class="form-group row pt-2">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Nombre"
+          formControlName="nombre"
+          [class.is-invalid]="nameInvalid()"
+        />
+        <small class="text-danger" *ngIf="nameInvalid()">
+          Nombre inválido.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row pt-2">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Apellido"
+          formControlName="apellido"
+          [class.is-invalid]="lastnameInvalid()"
+        />
+        <small class="text-danger" *ngIf="lastnameInvalid()">
+          Apellido inválido.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row pt-2">
+      <label class="col-2 col-form-label">Sexo</label>
+      <div class="d-flex w-50 justify-content-around align-items-center">
+        <div>
+          <input type="radio" formControlName="sexo" value="M" />
+          <label class="mx-2">Masculino</label>
+        </div>
+        <div>
+          <input type="radio" formControlName="sexo" value="F" />
+          <label class="mx-2">Femenino</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row pt-2">
+      <label class="col-2 col-form-label">Estado civil</label>
+      <div class="col">
+        <select
+          name="estado_civil"
+          class="form-control"
+          formControlName="estado_civil"
+          [class.is-invalid]="estadoCivilInvalid()"
+        >
+          <option
+            *ngFor="let estadoCivil of estadoCivilOptions"
+            [value]="estadoCivil.value"
+            class="text-muted"
+          >
+            {{ estadoCivil.description }}
+          </option>
+        </select>
+        <small class="text-danger" *ngIf="estadoCivilInvalid()">
+          Estado civil inválido.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row pt-2">
+      <label class="col-2 col-form-label">Correo</label>
+      <div class="col">
+        <input
+          class="form-control"
+          type="email"
+          placeholder="Correo electrónico"
+          formControlName="email"
+          [class.is-invalid]="emailInvalid()"
+        />
+        <small class="text-danger" *ngIf="emailInvalid()">
+          Email inválido.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row pt-2" formGroupName="direccion">
+      <label class="col-2 col-form-label">Dirección</label>
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Av. principal.."
+          formControlName="principal"
+          [class.is-invalid]="principalInvalid()"
+        />
+        <small class="text-danger" *ngIf="principalInvalid()">
+          Calle principal inválida.</small
+        >
+      </div>
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Referencia..."
+          formControlName="referencia"
+          [class.is-invalid]="referenciaInvalid()"
+        />
+        <small class="text-danger" *ngIf="referenciaInvalid()">
+          Referencia inválida.</small
+        >
+      </div>
+    </div>
+
+    <div class="">
+      <label class="col-2 col-form-label">&nbsp;</label>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-outline-primary m-2">
+          Guardar
+        </button>
+        <button class="btn btn-danger m-2" (click)="clearData()">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
+
+<section class="cta section">
+  <div class="container">
+    <div class="cta-inner section-inner">
+      <h3 class="section-title mt-0">Regresar al inicio</h3>
+      <div class="cta-cta">
+        <a
+          class="button button-primary button-wide-mobile"
+          [routerLink]="['/']"
+        >
+          Regresar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

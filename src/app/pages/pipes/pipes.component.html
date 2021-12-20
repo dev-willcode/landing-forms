@@ -1,0 +1,84 @@
+<section class="m-5">
+  <table>
+    <thead>
+      <tr>
+        <th>Pipe</th>
+        <th>Texto original</th>
+        <th>Transformación</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- uppercase -->
+      <tr>
+        <td>uppercase</td>
+        <td>{{ nombre }}</td>
+        <td>{{ nombre | uppercase }}</td>
+      </tr>
+      <!-- lowercase -->
+      <tr>
+        <td>lowercase</td>
+        <td>{{ nombre }}</td>
+        <td>{{ nombre | lowercase }}</td>
+      </tr>
+      <!-- decimal -->
+      <tr>
+        <td>decimales</td>
+        <td>{{ cantidad }}</td>
+        <td>{{ cantidad | number: "1.2-5" }}</td>
+      </tr>
+      <!-- currency:EUR -->
+      <tr>
+        <td>currency</td>
+        <td>{{ moneda }}</td>
+        <td>{{ moneda | currency: "EUR" }}</td>
+      </tr>
+      <!-- currency:USD -->
+      <tr>
+        <td>currency</td>
+        <td>{{ moneda }}</td>
+        <td>{{ moneda | currency: "USD" }}</td>
+      </tr>
+      <!-- percent -->
+      <tr>
+        <td>percent</td>
+        <td>{{ porcentaje }}</td>
+        <td>{{ porcentaje | percent: "1.2" }}</td>
+      </tr>
+      <!-- date -->
+      <tr>
+        <td>date</td>
+        <td>{{ fecha }}</td>
+        <td>{{ fecha | date: "mediumDate" }}</td>
+      </tr>
+      <!-- json -->
+      <tr>
+        <td>json</td>
+        <td>{{ obj }}</td>
+        <td>{{ obj | json }}</td>
+      </tr>
+      <!-- personalizada -->
+      <tr>
+        <td>personalizada</td>
+        <td>{{ emoji }}</td>
+        <td>{{ emoji | emoji }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="cta section">
+  <div class="container">
+    <div class="cta-inner section-inner">
+      <h3 class="section-title mt-0">Regresar al inicio</h3>
+      <div class="cta-cta">
+        <a
+          class="button button-primary button-wide-mobile"
+          [routerLink]="['/']"
+        >
+          Regresar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
